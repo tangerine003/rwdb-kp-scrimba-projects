@@ -1,0 +1,41 @@
+/* 5) em units are best to apply on margins , paddings, etc of elements so that when you adjust font-sizes in the css for different screen sizes , the paddings , margins scale with the font- size and you don't have to manually calculate and determine how much the padding or margins should be */
+
+html {
+  --accent-color: yellow;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.container {
+  background-color: black;
+  color: white;
+  width: 452px;
+  height: 254px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 35px;
+}
+
+span {
+  color: var(--accent-color);
+}
+
+.call-to-action {
+  background-color: var(--accent-color);
+  color: black;
+  /* padding: 15px 30px;  */ /* 3) If padding is kept  absolute in pixels then there seems to be visual inconsistencies in left and right padding of the big and small buttons even though their padding is equal    .So we want the padding to scale with the font-size of the respective button and we use em units for that*/
+  padding: 0.5em 1.25em; /* 4) ems when used for font-size of an element look at it's parent's font size to determine it's own but ems when applied to padding or margin or anything else looks at the font size of the element itself to determine it's padding or margin or whatever */
+  text-decoration: none;
+}
+
+.call-to-action-big {
+  font-size: 1.5rem; /* 1) button text is bigger and occupies more space and so it's padding appears smaller than the smaller button */
+}
+
+.call-to-action-small {
+  font-size: 0.75rem; /* 2) button text is smaller and occupies less space and so it's padding appears bigger than the bigger button */
+}
+
+.call-to-action:hover {
+  background-color: orange;
+}

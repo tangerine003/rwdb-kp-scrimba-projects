@@ -1,0 +1,112 @@
+html {
+  --color-one: #312614;
+  --color-two: #b7832f;
+  --color-three: #707070;
+  --color-four: #fff;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--color-one);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--color-three);
+}
+
+body {
+  font-size: 1.125rem;
+  color: var(--color-three);
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0px auto;
+  max-width: 980px;
+
+  /* outline: solid 2px red; */
+}
+
+img {
+  /* width: 100%; */
+  max-width: 100%;
+  /* Say your img original size is 300px and the body width is 500px. Width: 100% will make the img equal to 500px, disregarding the img original width. On the other hand if you say max-width: 100%. The img will jus be it’s original since it’s not more than 500px, originally (https://forum.freecodecamp.org/t/what-is-the-difference-between-width-100-and-max-width-100-on-image-element-in-css/409205/8) */
+  /* So max-width: 100% is used so that on larger screens the image does not become larger than it's originsal size and lose it's quality */
+}
+
+.columns {
+  display: flex;
+  /* outline: solid 5px purple; */
+  gap: 32px;
+  margin: 1em 0;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.col {
+  /* outline: solid 5px orange; */
+}
+
+.col:last-of-type {
+  background-color: var(--color-one);
+  color: var(--color-four);
+  padding: 1em;
+}
+
+span {
+  color: var(--color-two);
+}
+
+p {
+  margin-top: 0;
+}
+
+.col-1 {
+  /* outline: solid 5px orange; */
+  width: 20%; /* 1)orginally 25% */
+}
+
+.col-2 {
+  width: 45%; /* 2) orginally 50% */
+}
+
+.col-3 {
+  width: 70%; /* 3)orginally 75% . !)+2)+3) together make 100% but since we need space between columns so we reduce each by 5%*/
+}
+
+/*  the media condition here(the one inside the brackets) i.e min-width: 400px basically means that for screen sizes 400px and above the background color will be pink, which means that for screen sizes < 400px the bg color will be white(original bg color specified in the css) */
+/* 4) */
+@media (min-width: 400px) {
+  body {
+    background-color: pink;
+  }
+}
+
+/* this applies to screen sizes 650px and above . In the original state this media query should be after 4) otherwise only the 4) one will take into effect since if this media query was above 4) then 4) would apply since sizes 400px and bigger also includes 650px and bigger */
+/* 5) */
+@media (min-width: 600px) {
+  body {
+    background-color: aqua;
+  }
+}
+
+/* screen size between 0px and 339px will be affected by this */
+@media (max-width: 399px) {
+  body {
+    background-color: #94e480;
+  }
+}
+
+@media (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  /* this selector should be after the col-1,col-2,col-3 selectors (in the rest of the css) otherwise this won't work as order matters since those selectors look at all cases of width while this selector only looks at max-width: of 600px */
+  .col {
+    width: 100%;
+  }
+}

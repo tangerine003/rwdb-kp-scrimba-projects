@@ -1,0 +1,23 @@
+html {
+  font-size: 18px;
+}
+h2 {
+  color: ORANGE;
+}
+
+.container {
+  outline: solid 5px red;
+  width: 90%; /* so that content does not run from absolute edge to edge of the viewport as that would be awkward */
+  max-width: 620px; /* this is done so that on larger screen sizes the content does not fit the whole sentence(as in the content's width does not become that large as that would appear awkward) */
+  /* min-width: 500px; we don't set min width mostly as that can result in overflow of container so we just let content automatically shrink till shrinking is no longer possible */
+  margin-right: auto;
+  margin-left: auto;
+}
+
+img {
+  width: 100%; /* ensures that there in no side scrolling when the webpage is made smaller when it crosses the actual size of the image . This means that img is 100% of the width of the container */
+}
+
+ul {
+  font-size: 1.5em;
+}
